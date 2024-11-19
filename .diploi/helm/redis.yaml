@@ -29,9 +29,9 @@ spec:
             - name: redis-mount
               mountPath: /data
           args:
-            {{- if eq .Values.parameterGroups.persistentStorage true }}
+            {{- if eq .Values.parameterGroupsEnabled.persistentStorage true }}
             - "--save"
-            - {{ .Values.parameterGroups.persistentStorage.REDIS_SAVE_INTERVAL }}
+            - {{ .Values.parameterGroupsMap.REDIS_SAVE_INTERVAL }}
             - 1
             {{- end }}
       volumes:

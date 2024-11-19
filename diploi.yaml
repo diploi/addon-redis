@@ -1,0 +1,25 @@
+diploiVersion: v1.0
+type: addon
+name: Redis
+description: Official Redis addon for Diploi.
+
+parameterGroups:
+  - name: Persistent Storage
+    identifier: persistentStorage
+    description: Keep a snapshot of the DB on the disk
+    toggleable: true
+    defaultValue: false
+    parameters:
+      - name: Save Interval in Seconds
+        identifier: REDIS_SAVE_INTERVAL
+        defaultValue: 60
+        type: number
+
+logs:
+  - name: Redis Log
+    type: log
+    labelSelector: app=redis
+
+storage:
+  - identifier: redis
+    sizeMiB: 5120

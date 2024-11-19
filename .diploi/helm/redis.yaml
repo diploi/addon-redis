@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis
+spec:
+  selector:
+    matchLabels:
+      app: redis
+  serviceName: redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+        - name: redis
+          image: redis:7.4-alpine
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 6379
+              name: redis
+          env:
+            {{- range .Values.env }}
+            - name: {{ .identifier }}
+              value: {{ .value | quote }}
+            {{- end }}
+          volumeMounts:
+            - name: redis-mount
+              mountPath: /data
+          args:
+            {{- if eq .Values.parameterGroups.persistentStorage true }}
+            - "--save"
+            - {{ .Values.parameterGroups.persistentStorage.REDIS_SAVE_INTERVAL }}
+            - 1
+            {{- end }}
+      volumes:
+        - name: redis-mount
+          hostPath:
+            path: {{ $.Values.storage.postgres.hostPath }}

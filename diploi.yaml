@@ -13,7 +13,7 @@ parameterGroups:
       - name: Save Interval in Seconds
         identifier: REDIS_SAVE_INTERVAL
         defaultValue: 60
-        type: number
+        type: integer
 
 logs:
   - name: Redis Log

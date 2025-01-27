@@ -15,6 +15,11 @@ parameterGroups:
         defaultValue: 60
         type: integer
 
+connectionStrings:
+  - name: Connection URI
+    value: redis://redis.${DIPLOI_NAMESPACE}
+    description: This connection URI is for components within the deployment and is inaccessible externally.
+
 logs:
   - name: Redis Log
     type: log

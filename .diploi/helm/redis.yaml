@@ -31,8 +31,8 @@ spec:
           args:
             {{- if eq .Values.parameterGroupsEnabled.persistentStorage true }}
             - "--save"
-            - {{ .Values.parameterGroupsMap.REDIS_SAVE_INTERVAL }}
-            - 1
+            - "{{ .Values.parameterGroupsMap.REDIS_SAVE_INTERVAL }}"
+            - "1"
             {{- end }}
       volumes:
         - name: redis-mount

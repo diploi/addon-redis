@@ -25,6 +25,10 @@ logs:
     type: log
     labelSelector: app=redis
 
+images:
+  - identifier: redis
+    image: redis:7.4-alpine
+
 storage:
   - identifier: redis
     sizeMiB: 5120

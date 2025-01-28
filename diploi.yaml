@@ -17,7 +17,7 @@ parameterGroups:
 
 connectionStrings:
   - name: Connection URI
-    value: redis://redis.${DIPLOI_NAMESPACE}
+    value: redis://redis.${DIPLOI_NAMESPACE}:6379
     description: This connection URI is for components within the deployment and is inaccessible externally.
 
 logs:

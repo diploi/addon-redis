@@ -6,6 +6,6 @@ spec:
   type: NodePort
   ports:
     - name: redis
-      port: 5432
+      port: 6379
   selector:
     app: redis

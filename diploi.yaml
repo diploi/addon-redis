@@ -14,6 +14,10 @@ parameterGroups:
         identifier: REDIS_SAVE_INTERVAL
         defaultValue: 60
         type: integer
+      - name: Redis_url
+        identifier: REDIS_URL
+        defaultValue: redis://redis.${DIPLOI_NAMESPACE}:6379
+        type: string
 
 connectionStrings:
   - name: Connection URI
